@@ -1,0 +1,19 @@
+FROM python:3
+
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+ADD . /app
+
+RUN pip install biopython
+RUN pip install urllib3
+RUN pip install bs4
+RUN pip install pandas
+RUN pip install boto3
+RUN pip install lxml
+RUN pip install html5lib
+
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
+
+CMD [ "python", "CaseStudy1Part2.py" ]
